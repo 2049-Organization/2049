@@ -16,6 +16,11 @@ public class DialogueNode : ScriptableObject
     public float timeToWait = 1.5f;
 
     public DialogueNode directNextNode;
+
+    public BubbleSize bubbleSize;
+
+    public bool isEndOfDay = false;
+
 }
 
 

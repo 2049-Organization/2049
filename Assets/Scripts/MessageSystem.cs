@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,28 +11,42 @@ public enum MessageSender
     Player,
     Roxane
 }
+
+public enum BubbleSize
+{
+    XS,
+    S,
+    L,
+    XL
+}
+
 public class MessageSystem : MonoBehaviour
 {
-    public float characterPerLine = 10f;
+    [Header("Bubbles prefabs")]
 
-    public GameObject playerMessagePrefabXS;
-    public GameObject playerMessagePrefabS;
-    public GameObject playerMessagePrefabL;
-    public GameObject playerMessagePrefabXL;
-    public GameObject roxaneMessagePrefabXS;
-    public GameObject roxaneMessagePrefabS;
-    public GameObject roxaneMessagePrefabL;
-    public GameObject roxaneMessagePrefabXL;
+    [SerializeField] private GameObject playerMessagePrefabXS;
+    [SerializeField] private GameObject playerMessagePrefabS;
+    [SerializeField] private GameObject playerMessagePrefabL;
+    [SerializeField] private GameObject playerMessagePrefabXL;
+    [SerializeField] private GameObject roxaneMessagePrefabXS;
+    [SerializeField] private GameObject roxaneMessagePrefabS;
+    [SerializeField] private GameObject roxaneMessagePrefabL;
+    [SerializeField] private GameObject roxaneMessagePrefabXL;
 
-    public Transform content;
-    public Transform choices;
 
-    public GameObject choicePrefab;
+    [Header("Choice system")]
+    [SerializeField] private Transform choicesTr;
+    [SerializeField] private GameObject choicePrefab;
+    [SerializeField] private List<GameObject> choices = new List<GameObject>();
 
+    [Header("Miscellaneous")]
+
+    [SerializeField] private Transform content;
     private ScrollRect scrollRect;
-
     private DialogueNode currentNode;
     [SerializeField] private DialogueNode startNode;
+    [SerializeField] private int day = 0;
+    [SerializeField] private GameObject endOfDayPrefab;
 
     public static MessageSystem Instance { get; private set; }
 
@@ -55,30 +70,58 @@ public class MessageSystem : MonoBehaviour
 
     public void StartSendingMessages(DialogueNode start)
     {
+        foreach(GameObject choice in choices)
+        {
+            Destroy(choice);
+        }
         currentNode = start;
         StartCoroutine(SendMessage());
     }
 
    private IEnumerator SendMessage()
    {
-        ShowMessage(currentNode.message, currentNode.speaker);
-        if (currentNode.timeToWait > 0)
-            yield return new WaitForSeconds(currentNode.timeToWait);
-        if (currentNode.choices != null && currentNode.choices.Count > 0)
+        if (currentNode.isEndOfDay) 
         {
-            foreach (var choice in currentNode.choices)
-            {
-                GameObject go = Instantiate(choicePrefab, choices);
-                go.GetComponent<ChoiceButton>().Init(choice);
-            }
-        }
-        else if(currentNode.directNextNode != null)
-        {
-            NextMessage();
+            day += 1;
+            ShowEndOfDayMessage(day);
         }
         else
         {
-            Debug.Log("Dialogue has ended");
+            ShowMessage(currentNode.message, currentNode.speaker, currentNode.bubbleSize);
+            if (currentNode.timeToWait > 0)
+                yield return new WaitForSeconds(currentNode.timeToWait);
+            if (currentNode.choices != null && currentNode.choices.Count > 0)
+            {
+                foreach (var choice in currentNode.choices)
+                {
+                    if (PlayerData.Instance.object_map.ContainsKey(choice.choiceText))
+                    {
+                        if (PlayerData.Instance.object_map[choice.choiceText] == PlayerData.Instance.obj1 ||
+                            PlayerData.Instance.object_map[choice.choiceText] == PlayerData.Instance.obj2 ||
+                            PlayerData.Instance.object_map[choice.choiceText] == PlayerData.Instance.obj3 )
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            choices.Add(Instantiate(choicePrefab, choicesTr));
+                            choices[^1].GetComponent<ChoiceButton>().Init(choice);
+                        }
+                    }
+                    else
+                    {
+                        choices.Add(Instantiate(choicePrefab, choicesTr));
+                        choices[^1].GetComponent<ChoiceButton>().Init(choice);
+                    }
+                }
+
+                Canvas.ForceUpdateCanvases();
+                scrollRect.normalizedPosition = new Vector2(0.0f, 0);
+            }
+            else if(currentNode.directNextNode != null)
+            {
+                NextMessage();
+            }
         }
     }
 
@@ -88,44 +131,37 @@ public class MessageSystem : MonoBehaviour
         StartCoroutine(SendMessage());
     }
 
-    private void Update()
+    public void ShowEndOfDayMessage(int day)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShowMessage("This is a test message to see how the message system works. It should be able to handle multiple lines and different senders.", MessageSender.Player);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ShowMessage("This is a test message to see how the message system works. It should be able to handle multiple lines and different senders.", MessageSender.Roxane);
-        }
+        Instantiate(endOfDayPrefab, content).GetComponent<EndOfDayMessage>().SetDay(day);
+        Canvas.ForceUpdateCanvases();
+        scrollRect.normalizedPosition = new Vector2(0.0f, 0);
     }
 
-    public void ShowMessage(string message, MessageSender sender)
+    public void ShowMessage(string message, MessageSender sender, BubbleSize size)
     {
-        int nbLines = Mathf.CeilToInt(message.Length / characterPerLine);
         switch (sender)
         {
             case MessageSender.Player:
                 GameObject go_pl;
-                switch (nbLines)
+                switch (size)
                 {
-                    case 1:
+                    case BubbleSize.XS:
                         go_pl = Instantiate(playerMessagePrefabXS, content);
                         go_pl.GetComponent<MessageBubble>().message = message;
                         go_pl.GetComponent<MessageBubble>().Init();
                         break;
-                    case 2:
+                    case BubbleSize.S:
                         go_pl = Instantiate(playerMessagePrefabS, content);
                         go_pl.GetComponent<MessageBubble>().message = message;
                         go_pl.GetComponent<MessageBubble>().Init();
                         break;
-                    case 3:
+                    case BubbleSize.L:
                         go_pl = Instantiate(playerMessagePrefabL, content);
                         go_pl.GetComponent<MessageBubble>().message = message;
                         go_pl.GetComponent<MessageBubble>().Init();
                         break;
-                    case 4:
+                    case BubbleSize.XL:
                         go_pl = Instantiate(playerMessagePrefabXL, content);
                         go_pl.GetComponent<MessageBubble>().message = message;
                         go_pl.GetComponent<MessageBubble>().Init();
@@ -137,24 +173,24 @@ public class MessageSystem : MonoBehaviour
                 break;
             case MessageSender.Roxane:
                 GameObject go_rx;
-                switch (nbLines)
+                switch (size)
                 {
-                    case 1:
+                    case BubbleSize.XS:
                         go_rx = Instantiate(roxaneMessagePrefabXS, content);
                         go_rx.GetComponent<MessageBubble>().message = message;
                         go_rx.GetComponent<MessageBubble>().Init();
                         break;
-                    case 2:
+                    case BubbleSize.S:
                         go_rx = Instantiate(roxaneMessagePrefabS, content);
                         go_rx.GetComponent<MessageBubble>().message = message;
                         go_rx.GetComponent<MessageBubble>().Init();
                         break;
-                    case 3:
+                    case BubbleSize.L:
                         go_rx = Instantiate(roxaneMessagePrefabL, content);
                         go_rx.GetComponent<MessageBubble>().message = message;
                         go_rx.GetComponent<MessageBubble>().Init();
                         break;
-                    case 4:
+                    case BubbleSize.XL:
                         go_rx = Instantiate(roxaneMessagePrefabXL, content);
                         go_rx.GetComponent<MessageBubble>().message = message;
                         go_rx.GetComponent<MessageBubble>().Init();

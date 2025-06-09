@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
-  m_Name: DialogueNode3
+  m_Name: 7
   m_EditorClassIdentifier: 
-  nodeId: 4
-  message: "Haha, toujours le mot pour rire ! Mais plus s\xE9rieusement, je n'ai
-    pas assez de place pour prendre toutes mes affaires, qu'est ce qui est le plus
-    utile selon toi ?"
-  speaker: 1
+  nodeId: 7
+  message: "Courage pour la route ! Tiens moi au courant de ton avanc\xE9e."
+  speaker: 0
   choices: []
-  nextNode: {fileID: 0}
-  delayBeforeNext: 1.5
+  timeToWait: 2
+  directNextNode: {fileID: 11400000, guid: 8766c5609b3fa4e46bcbd5ac7f7104a6, type: 2}
+  bubbleSize: 1
+  isEndOfDay: 0

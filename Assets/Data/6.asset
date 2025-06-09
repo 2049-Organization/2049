@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
-  m_Name: DialogueNode1
+  m_Name: 6
   m_EditorClassIdentifier: 
-  nodeId: 1
-  message: "Tu penses pouvoir m'accueuillir chez toi \xE0 Paris le temps de trouver
-    une solution ?"
+  nodeId: 6
+  message: Parfait, merci du coup de main ! Je me mets en route pour Bordeaux, souhaites
+    moi bonne chance !
   speaker: 1
   choices:
-  - choiceText: Hey, Pas de soucis...
-    nextNode: {fileID: 11400000, guid: 9b926001b1ffdf94b9629b526733baf8, type: 2}
-  timeToWait: 1
+  - choiceText: Courage pour la route !
+    nextNode: {fileID: 11400000, guid: cde66533ce998b1489f73fcca356cec3, type: 2}
+  timeToWait: 1.5
   directNextNode: {fileID: 0}
+  bubbleSize: 1
