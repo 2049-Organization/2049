@@ -21,6 +21,8 @@ public class DialogueNode : ScriptableObject
     public BubbleSize bubbleSize;
 
     public bool isEndOfDay = false;
+
+    public Sprite image;
 }
 
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeId: 25.1
   message: "J\u2019ai bien fait de lui donner ma bo\xEEte de conserve, il m\u2019a
-    propos\xE9 de m\u2019amener \xE0 La Rochelle avec sa voiture rapidement.\r"
+    propos\xE9 de m\u2019amener \xE0 La Rochelle avec sa voiture rapidement <sprite=3082>.\r"
   speaker: 1
   choices: []
   timeToWait: 2

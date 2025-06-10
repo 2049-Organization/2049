@@ -141,12 +141,12 @@ MonoBehaviour:
   fourthDialogueNode: {fileID: 11400000, guid: e800bb9a1a04c434db70f4cf340ee059, type: 2}
   fifthDialogueNode: {fileID: 11400000, guid: ee75c82e38696ef47942b6a9a50a3b3f, type: 2}
   sixthDialogueNode: {fileID: 11400000, guid: d8fe24bf2c4cfff4784091c485913b3c, type: 2}
-  medicine: {fileID: 21300000, guid: 82adfa5fb31bd4c42bd86a9f55fe89a1, type: 3}
-  raincoat: {fileID: 21300000, guid: a32e70deea64774409bad1791660edf8, type: 3}
-  phone_charger: {fileID: 21300000, guid: 0dc3a155c1023a84f8fd23c14c4a9294, type: 3}
-  tincan: {fileID: 21300000, guid: 960310e37fe32c5409f3778d5363126e, type: 3}
-  bus_pass: {fileID: 21300000, guid: 6a996ffb77d6af24c88c114313d30b2b, type: 3}
-  money: {fileID: 21300000, guid: 7d0e9ac4c5ece16468617ddee606f5f2, type: 3}
+  medicine: {fileID: 21300000, guid: 5f3e6294f7d986541bdbaad33f68e597, type: 3}
+  raincoat: {fileID: 21300000, guid: 2efc07cdefb6fd945a50d9db417db4e8, type: 3}
+  phone_charger: {fileID: 21300000, guid: f493248eae897ef4a9b6f65dfeb8f3dd, type: 3}
+  tincan: {fileID: 21300000, guid: 4c28a84b98ab1f14d9e945017800fd75, type: 3}
+  bus_pass: {fileID: 21300000, guid: 3d971e4080226fc44b703231d5446e3a, type: 3}
+  money: {fileID: 21300000, guid: 7fa5a2e4de78c234b86bb25e2ddcadf3, type: 3}
   icon: {fileID: 6864439958555466172}
   text: {fileID: 1720471432325403265}
 --- !u!114 &2105332433266493041

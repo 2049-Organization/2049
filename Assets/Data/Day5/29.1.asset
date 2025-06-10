@@ -18,5 +18,5 @@ MonoBehaviour:
   choices: []
   timeToWait: 2
   directNextNode: {fileID: 11400000, guid: 22c5cde64e5beb0449799ceaa3984dc9, type: 2}
-  bubbleSize: 2
+  bubbleSize: 1
   isEndOfDay: 0

@@ -51,7 +51,7 @@ public class PlayerData : MonoBehaviour
         object_map["Tenue de pluie"] = Object.Raincoat;
         object_map["Chargeur de téléphone"] = Object.Phone_charger;
         object_map["Boîte de conserve"] = Object.Tin_can;
-        object_map["Pass de bus"] = Object.Bus_card;
+        object_map["Ticket de bus"] = Object.Bus_card;
         object_map["Liasse de billets"] = Object.Money;
     }
 

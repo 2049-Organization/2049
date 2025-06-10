@@ -16,7 +16,7 @@ MonoBehaviour:
   message: "Je t\u2019envoie un message quand j\u2019arrive \xE0 destination.\r\n\r\n"
   speaker: 1
   choices: []
-  timeToWait: 1
+  timeToWait: 2.5
   directNextNode: {fileID: 11400000, guid: 0f636a6fbad293944817e067c9d3b8a4, type: 2}
   bubbleSize: 1
   isEndOfDay: 0

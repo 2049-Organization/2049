@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeId: 6
   message: Parfait, merci du coup de main ! Je me mets en route pour Bordeaux, souhaites
-    moi bonne chance !
+    moi bonne chance <sprite=2419> !
   speaker: 1
   choices:
   - choiceText: Courage pour la route !

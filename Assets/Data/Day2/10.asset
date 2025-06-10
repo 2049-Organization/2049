@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10
   m_EditorClassIdentifier: 
   nodeId: 9
-  message: Hey !
+  message: Hey <sprite=3448> !
   speaker: 0
   choices: []
   timeToWait: 1

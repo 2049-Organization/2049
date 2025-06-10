@@ -18,7 +18,7 @@ MonoBehaviour:
     Bordeaux selon toi ?"
   speaker: 1
   choices:
-  - choiceText: 'Bus: -pass de bus'
+  - choiceText: 'Bus: -ticket de bus'
     nextNode: {fileID: 11400000, guid: 72d27045bb7a536499a51075ccf03929, type: 2}
     neededObject: 4
   - choiceText: "Voiture: -1 sant\xE9"

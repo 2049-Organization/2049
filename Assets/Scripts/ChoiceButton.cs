@@ -37,11 +37,11 @@ public class ChoiceButton : MonoBehaviour
         btn = GetComponent<Button>();
     }
 
-    public void Init(DialogueChoice dialogueNode)
+    public void Init(DialogueChoice choiceNode)
     {
-        text.text = dialogueNode.choiceText;
+        text.text = choiceNode.choiceText;
 
-        switch (dialogueNode.choiceText)
+        switch (choiceNode.choiceText)
         {
             case "Boîte de médicament":
                 icon.sprite = medicine;
@@ -55,7 +55,7 @@ public class ChoiceButton : MonoBehaviour
             case "Boîte de conserve":
                 icon.sprite = tincan;
                 break;
-            case "Pass de bus":
+            case "Ticket de bus":
                 icon.sprite = bus_pass;
                 break;
             case "Liasse de billets":
@@ -67,11 +67,11 @@ public class ChoiceButton : MonoBehaviour
 
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            if (PlayerData.Instance.object_map.ContainsKey(dialogueNode.choiceText))
+            if (PlayerData.Instance.object_map.ContainsKey(choiceNode.choiceText))
             {
                 if(PlayerData.Instance.GetObj1() == Object.Null)
                 {
-                    PlayerData.Instance.SetObj1(PlayerData.Instance.object_map[dialogueNode.choiceText]);
+                    PlayerData.Instance.SetObj1(PlayerData.Instance.object_map[choiceNode.choiceText]);
                     DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
                     newNode.speaker = MessageSender.Player;
                     newNode.nodeId = "obj1";
@@ -91,7 +91,7 @@ public class ChoiceButton : MonoBehaviour
                 }
                 else if (PlayerData.Instance.GetObj2() == Object.Null)
                 {
-                    PlayerData.Instance.SetObj2(PlayerData.Instance.object_map[dialogueNode.choiceText]);
+                    PlayerData.Instance.SetObj2(PlayerData.Instance.object_map[choiceNode.choiceText]);
                     DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
                     newNode.speaker = MessageSender.Player;
                     newNode.nodeId = "obj2";
@@ -111,7 +111,7 @@ public class ChoiceButton : MonoBehaviour
                 }
                 else if (PlayerData.Instance.GetObj3() == Object.Null)
                 {
-                    PlayerData.Instance.SetObj3(PlayerData.Instance.object_map[dialogueNode.choiceText]);
+                    PlayerData.Instance.SetObj3(PlayerData.Instance.object_map[choiceNode.choiceText]);
                     DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
                     newNode.speaker = MessageSender.Player;
                     newNode.nodeId = "obj3";
@@ -132,12 +132,12 @@ public class ChoiceButton : MonoBehaviour
             }
             else
             {
-                MessageSystem.Instance.StartSendingMessages(dialogueNode.nextNode);
+                MessageSystem.Instance.StartSendingMessages(choiceNode.nextNode);
             }
 
-            switch (dialogueNode.choiceText)
+            switch (choiceNode.choiceText)
             {
-                case "Bus: -pass de bus":
+                case "Bus: -ticket de bus":
                     if (PlayerData.Instance.GetObj1() == Object.Bus_card)
                     {
                         PlayerData.Instance.SetObj1(Object.Null);
@@ -202,6 +202,12 @@ public class ChoiceButton : MonoBehaviour
                     {
                         PlayerData.Instance.SetObj3(Object.Null);
                     }
+                    break;
+                case "Oui: -1 santé":
+                    PlayerData.Instance.SetHealth(PlayerData.Instance.GetHealth() - 1);
+                    break;
+                case "Non: +1 santé":
+                    PlayerData.Instance.SetHealth(PlayerData.Instance.GetHealth() + 1);
                     break;
             }
         });

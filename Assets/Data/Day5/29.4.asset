@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeId: 29.4
   message: "Tr\xE8s bien ! Je t'attends avec impatience, pr\xE9viens moi de l\u2019avanc\xE9e
-    de ton trajet.\r"
+    de ton trajet <sprite=3387>.\r"
   speaker: 0
   choices: []
   timeToWait: 2
   directNextNode: {fileID: 11400000, guid: 22c5cde64e5beb0449799ceaa3984dc9, type: 2}
-  bubbleSize: 3
+  bubbleSize: 2
   isEndOfDay: 0

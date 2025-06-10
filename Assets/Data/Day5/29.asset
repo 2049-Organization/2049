@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: 29
   m_EditorClassIdentifier: 
   nodeId: 29
-  message: "Je suis arriv\xE9e au train, ils m\u2019ont dit que je ne pouvais pas
-    monter car je suis malade. J\u2019ai d\xFB attraper le nouveau virus dont tout
-    le monde parle\u2026"
+  message: Internal/Maladie?
   speaker: 1
   choices: []
   timeToWait: 2

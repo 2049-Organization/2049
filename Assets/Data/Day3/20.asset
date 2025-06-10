@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 20
   m_EditorClassIdentifier: 
   nodeId: 20
-  message: "L\u2019entr\xE9e est noire de monde\u2026 Tu penses que je devrais essayer
-    d\u2019y \nentrer ?"
+  message: "L\u2019entr\xE9e est remplie de monde\u2026 Tu penses que je devrais
+    essayer d\u2019y \nentrer ?"
   speaker: 1
   choices:
   - choiceText: "Dormir dehors: -1 sant\xE9"
@@ -30,3 +30,4 @@ MonoBehaviour:
   directNextNode: {fileID: 0}
   bubbleSize: 2
   isEndOfDay: 0
+  image: {fileID: 0}

@@ -15,10 +15,11 @@ MonoBehaviour:
   nodeId: 19
   message: "Malheureusement je ne connais personne dans la ville\u2026 mais j\u2019ai
     r\xE9ussi \xE0 trouver un camp de r\xE9fugi\xE9s climatique install\xE9 par la
-    croix rouge. \r"
+    Croix Rouge. \r"
   speaker: 1
   choices: []
   timeToWait: 2.5
   directNextNode: {fileID: 11400000, guid: 77fdbefaeeeeea141826fb5118d7ba5a, type: 2}
   bubbleSize: 3
   isEndOfDay: 0
+  image: {fileID: 21300000, guid: 12eb840cfd3d73141aa5069ea817adcc, type: 3}

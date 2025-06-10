@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 43
+  m_EditorClassIdentifier: 
+  nodeId: 43
+  message: "Je monte dans le premier train vers Paris, je t\u2019envoie un message
+    quand j\u2019arrive enfin \xE0 la gare <sprite=3449>."
+  speaker: 1
+  choices:
+  - choiceText: Tiens moi au courant
+    nextNode: {fileID: 11400000, guid: 0dbcd054d15e7ac47a11c0b55c236450, type: 2}
+    neededObject: 6
+  timeToWait: 2.5
+  directNextNode: {fileID: 0}
+  bubbleSize: 2
+  isEndOfDay: 0

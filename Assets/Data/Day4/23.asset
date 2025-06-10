@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeId: 23
   message: "Les trajets entre Bordeaux et La Rochelle sont pratiquement impraticables
-    \xE0 cause des inondations des derni\xE8res semaines. "
+    \xE0 cause des inondations des derni\xE8res semaines <sprite=1558>. "
   speaker: 1
   choices: []
   timeToWait: 2

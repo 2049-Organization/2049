@@ -28,7 +28,7 @@ MonoBehaviour:
   - choiceText: "Bo\xEEte de conserve"
     nextNode: {fileID: 11400000, guid: ee75c82e38696ef47942b6a9a50a3b3f, type: 2}
     neededObject: 6
-  - choiceText: Pass de bus
+  - choiceText: Ticket de bus
     nextNode: {fileID: 11400000, guid: ee75c82e38696ef47942b6a9a50a3b3f, type: 2}
     neededObject: 6
   - choiceText: Liasse de billets

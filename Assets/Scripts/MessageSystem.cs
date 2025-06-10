@@ -36,6 +36,8 @@ public class MessageSystem : MonoBehaviour
     [SerializeField] private GameObject roxaneMessagePrefabL;
     [SerializeField] private GameObject roxaneMessagePrefabXL;
 
+    [SerializeField] private GameObject roxaneMessageImagePrefab;
+
     [Header("Choice system")]
     [SerializeField] private Transform choicesTr;
     [SerializeField] private GameObject choicePrefab;
@@ -59,6 +61,7 @@ public class MessageSystem : MonoBehaviour
     [SerializeField] private DialogueNode corruptedControllerNode;
     [SerializeField] private DialogueNode findOldFriendNode;
     [SerializeField] private DialogueNode goIntoTheTrainNode;
+    [SerializeField] private Sprite virusImage;
     public static MessageSystem Instance { get; private set; }
 
     private void Awake()
@@ -93,7 +96,7 @@ public class MessageSystem : MonoBehaviour
    private IEnumerator SendMessage()
    {
         string messageMod = "";
-
+        bool useVirusImage = false;
         if (currentNode.isEndOfDay) 
         {
             day += 1;
@@ -104,52 +107,73 @@ public class MessageSystem : MonoBehaviour
             if (currentNode.message == "Internal/Choix du véhicule")
             {
                 if (PlayerData.Instance.tookTheBus)
-                    messageMod = "Hey ! Je suis ENFIN arrivé à Bordeaux. Le trajet était tellement long en bus… mais au moins on étouffait pas dans les fumées de l’embouteillage.";
+                    messageMod = "Hey ! Je suis ENFIN arrivé à Bordeaux. Le trajet était tellement long en bus… mais au moins on étouffait pas dans les fumées de l’embouteillage <sprite=1863>.";
                 else if (PlayerData.Instance.tookTheCar)
-                    messageMod = " Hey ! Je suis enfin arrivé à Bordeaux. Le trajet était long, surtout à cause des fumées de l’embouteillage qui m’ont clairement donné mal à la tête.\r\n";
+                    messageMod = " Hey ! Je suis enfin arrivé à Bordeaux. Le trajet était long, surtout à cause des fumées de l’embouteillage qui m’ont clairement donné mal à la tête <sprite=1863>.";
                 else if (PlayerData.Instance.tookTheTaxi)
-                    messageMod = "Hey ! Je suis enfin arrivé à Bordeaux ! Tu avais raison, le taxi est passé par des petites routes et m’a fait éviter tous les embouteillages. Un super gain de temps !\r\n";
+                    messageMod = "Hey ! Je suis enfin arrivé à Bordeaux ! Tu avais raison, le taxi est passé par des petites routes et m’a fait éviter tous les embouteillages. Un super gain de temps <sprite=1985> !";
             }
             else if (currentNode.message == "Internal/Maladie?")
             {
                 if (PlayerData.Instance.illness)
                 {
                     messageMod = "Je suis arrivée au train, ils m’ont dit que je ne pouvais pas monter car je suis malade. J’ai dû attraper le nouveau virus dont tout le monde parle…";
+                    useVirusImage = true;
 
-                    DialogueChoice choice1 = new DialogueChoice();
-                    choice1.choiceText = "Monter dans le train: -médicaments";
-                    choice1.neededObject = Object.Medicine;
-                    choice1.nextNode = goIntoTheTrainNode;
+                    DialogueChoice choice1 = new()
+                    {
+                        choiceText = "Monter dans le train: -médicaments",
+                        neededObject = Object.Medicine,
+                        nextNode = goIntoTheTrainNode
+                    };
                     choices.Add(Instantiate(choicePrefab, choicesTr));
                     choices[^1].GetComponent<ChoiceButton>().Init(choice1);
 
-                    DialogueChoice choice2 = new DialogueChoice();
-                    choice2.choiceText = "Chercher une connaissance";
-                    choice2.neededObject = Object.Null;
-                    choice2.nextNode = findOldFriendNode;
+                    if (Object.Medicine != PlayerData.Instance.GetObj1() &&
+                        Object.Medicine != PlayerData.Instance.GetObj2() &&
+                        Object.Medicine != PlayerData.Instance.GetObj3())
+                    {
+                        choices[^1].GetComponent<ChoiceButton>().SetUnavailable();
+                    }
+
+                    DialogueChoice choice2 = new()
+                    {
+                        choiceText = "Chercher une connaissance",
+                        neededObject = Object.Null,
+                        nextNode = findOldFriendNode
+                    };
                     choices.Add(Instantiate(choicePrefab, choicesTr));
                     choices[^1].GetComponent<ChoiceButton>().Init(choice2);
 
-                    DialogueChoice choice3 = new DialogueChoice();
-                    choice3.choiceText = "Soudoyer le contrôleur: -2 argent";
-                    choice3.neededObject = Object.Null;
-                    choice3.nextNode = corruptedControllerNode;
+                    DialogueChoice choice3 = new()
+                    {
+                        choiceText = "Soudoyer le contrôleur: -2 argent",
+                        neededObject = Object.Null,
+                        nextNode = corruptedControllerNode
+                    };
                     choices.Add(Instantiate(choicePrefab, choicesTr));
                     choices[^1].GetComponent<ChoiceButton>().Init(choice3);
+
+                    if (PlayerData.Instance.GetMoney() <= 0)
+                    {
+                        choices[^1].GetComponent<ChoiceButton>().SetUnavailable();
+                    }
                 }
                 else
                 {
-                    messageMod = "Je suis arrivée à La Rochelle et je suis montée dans le train, je l'ai pris en direction de Paris. Je serai bientôt arrivée !";
-                    DialogueChoice choice = new DialogueChoice();
-                    choice.choiceText = "Je t’attend !";
-                    choice.neededObject = Object.Null;
-                    choice.nextNode = waitingForYouNode;
+                    messageMod = "Je suis arrivée à La Rochelle et je suis montée dans le train, je l'ai pris en direction de Paris. Je serai bientôt arrivée <sprite=2179>!";
+                    DialogueChoice choice = new()
+                    {
+                        choiceText = "Je t’attend !",
+                        neededObject = Object.Null,
+                        nextNode = waitingForYouNode
+                    };
                     choices.Add(Instantiate(choicePrefab, choicesTr));
                     choices[^1].GetComponent<ChoiceButton>().Init(choice);
                 }
             }
 
-            ShowMessage(messageMod == "" ? currentNode.message : messageMod, currentNode.speaker, currentNode.bubbleSize);
+            ShowMessage(messageMod == "" ? currentNode.message : messageMod, currentNode.speaker, currentNode.bubbleSize, useVirusImage ? virusImage : currentNode.image);
             if (currentNode.timeToWait > 0 && !Input.GetKey(KeyCode.Mouse1))
                 yield return new WaitForSeconds(currentNode.timeToWait);
             
@@ -216,10 +240,11 @@ public class MessageSystem : MonoBehaviour
     private IEnumerator WaitForNextDay()
     {
         yield return new WaitForSeconds(3f);
-        NextMessage();
+        if (currentNode.directNextNode != null) 
+            NextMessage();
     }
 
-    public void ShowMessage(string message, MessageSender sender, BubbleSize size)
+    public void ShowMessage(string message, MessageSender sender, BubbleSize size, Sprite s)
     {
         switch (sender)
         {
@@ -294,6 +319,12 @@ public class MessageSystem : MonoBehaviour
 
                 break;
         }
+        
+        if(s != null)
+        {
+            Instantiate(roxaneMessageImagePrefab, content).GetComponent<MessageImage>().Init(s);
+        }
+
         Canvas.ForceUpdateCanvases();
         scrollRect.normalizedPosition = new Vector2(0, 0);
     }

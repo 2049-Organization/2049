@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   nodeId: 3
-  message: "Haha, toujours le mot pour rire ! Mais plus s\xE9rieusement, je n'ai
-    pas assez de place pour prendre toutes mes affaires, qu'est ce qui est le plus
-    utile selon toi ?"
+  message: "Haha, toujours le mot pour rire <sprite=2960> ! Mais plus s\xE9rieusement,
+    je n'ai pas assez de place pour prendre toutes mes affaires, qu'est ce qui est
+    le plus utile selon toi ?"
   speaker: 1
   choices:
   - choiceText: "Bo\xEEte de m\xE9dicament"
@@ -30,7 +30,7 @@ MonoBehaviour:
   - choiceText: "Bo\xEEte de conserve"
     nextNode: {fileID: 11400000, guid: e800bb9a1a04c434db70f4cf340ee059, type: 2}
     neededObject: 6
-  - choiceText: Pass de bus
+  - choiceText: Ticket de bus
     nextNode: {fileID: 11400000, guid: e800bb9a1a04c434db70f4cf340ee059, type: 2}
     neededObject: 6
   - choiceText: Liasse de billets
