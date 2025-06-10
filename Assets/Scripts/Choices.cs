@@ -23,6 +23,9 @@ public class DialogueNode : ScriptableObject
     public bool isEndOfDay = false;
 
     public Sprite image;
+
+    public string alert;
+    public Sprite alertImage;
 }
 
 

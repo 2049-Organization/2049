@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 
@@ -62,6 +63,9 @@ public class MessageSystem : MonoBehaviour
     [SerializeField] private DialogueNode findOldFriendNode;
     [SerializeField] private DialogueNode goIntoTheTrainNode;
     [SerializeField] private Sprite virusImage;
+    [SerializeField] private GameObject alertPrefab;
+    [SerializeField] private RectTransform alertHolder;
+
     public static MessageSystem Instance { get; private set; }
 
     private void Awake()
@@ -173,7 +177,7 @@ public class MessageSystem : MonoBehaviour
                 }
             }
 
-            ShowMessage(messageMod == "" ? currentNode.message : messageMod, currentNode.speaker, currentNode.bubbleSize, useVirusImage ? virusImage : currentNode.image);
+            ShowMessage(messageMod == "" ? currentNode.message : messageMod, currentNode.speaker, currentNode.bubbleSize, useVirusImage ? virusImage : currentNode.image, currentNode.alert, currentNode.alertImage);
             if (currentNode.timeToWait > 0 && !Input.GetKey(KeyCode.Mouse1))
                 yield return new WaitForSeconds(currentNode.timeToWait);
             
@@ -244,7 +248,7 @@ public class MessageSystem : MonoBehaviour
             NextMessage();
     }
 
-    public void ShowMessage(string message, MessageSender sender, BubbleSize size, Sprite s)
+    public void ShowMessage(string message, MessageSender sender, BubbleSize size, Sprite s, string alert, Sprite alertSprite)
     {
         switch (sender)
         {
@@ -323,6 +327,12 @@ public class MessageSystem : MonoBehaviour
         if(s != null)
         {
             Instantiate(roxaneMessageImagePrefab, content).GetComponent<MessageImage>().Init(s);
+        }
+
+        if(alert != null && alertSprite != null)
+        {
+            Instantiate(alertPrefab, alertHolder).GetComponent<Alert>().Init(alert, alertSprite);
+            audioManager.PlaySFX(notificationSound);
         }
 
         Canvas.ForceUpdateCanvases();

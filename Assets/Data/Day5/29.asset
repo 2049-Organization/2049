@@ -20,3 +20,7 @@ MonoBehaviour:
   directNextNode: {fileID: 0}
   bubbleSize: 3
   isEndOfDay: 0
+  image: {fileID: 0}
+  alert: "Des temp\xE9ratures jamais vues en France, plus de 40 d\xE9partements en
+    vigilance rouge !"
+  alertImage: {fileID: 21300000, guid: 52a4516afe119a643a0d31a0a8c30592, type: 3}

@@ -23,3 +23,7 @@ MonoBehaviour:
   bubbleSize: 3
   isEndOfDay: 0
   image: {fileID: 21300000, guid: 12eb840cfd3d73141aa5069ea817adcc, type: 3}
+  alert: "La Rochelle compl\xE9tement inond\xE9e apr\xE8s des crues jamais vues auparavant.
+    La mont\xE9e des eaux menace les habitants :  127 personnes bless\xE9es, plus
+    de 2000 d\xE9plac\xE9s"
+  alertImage: {fileID: 21300000, guid: 09acb196b554ef246b01484901009de5, type: 3}

@@ -21,3 +21,7 @@ MonoBehaviour:
   directNextNode: {fileID: 11400000, guid: 8c1a8e0a65071e94392a33ea9b2b46a0, type: 2}
   bubbleSize: 3
   isEndOfDay: 0
+  image: {fileID: 0}
+  alert: "Des incendies de for\xEAts ravageurs intoxiquent toujours Toulouse... Les
+    flammes aux portes de la ville..."
+  alertImage: {fileID: 21300000, guid: 381102bf96e6db244826a18ec8dc6492, type: 3}

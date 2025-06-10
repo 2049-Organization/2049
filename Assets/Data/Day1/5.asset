@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   nodeId: 5
-  message: Il me reste pas beaucoup de place, ni de temps... Un dernier truc ?
+  message: Il ne me reste pas beaucoup de place, ni de temps... Un dernier truc ?
   speaker: 1
   choices:
   - choiceText: "Bo\xEEte de m\xE9dicament"
@@ -38,3 +38,6 @@ MonoBehaviour:
   directNextNode: {fileID: 0}
   bubbleSize: 2
   isEndOfDay: 0
+  image: {fileID: 0}
+  alert: 
+  alertImage: {fileID: 0}
