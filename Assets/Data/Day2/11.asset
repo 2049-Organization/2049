@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 11
+  m_EditorClassIdentifier: 
+  nodeId: 9
+  message: "Je viens de regarder les infos, tu as vu ces vagues massives de r\xE9fugi\xE9s
+    climatiques ? "
+  speaker: 1
+  choices:
+  - choiceText: "J\u2019ai vu \xE7a oui\u2026"
+    nextNode: {fileID: 11400000, guid: 910913290a3a4e943b1569c957c8a946, type: 2}
+    neededObject: 6
+  timeToWait: 0.6
+  directNextNode: {fileID: 0}
+  bubbleSize: 2
+  isEndOfDay: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 20.3
+  m_EditorClassIdentifier: 
+  nodeId: 20.3
+  message: "Je comprends, je vais tenter de chercher un moyen pour partir vers La
+    Rochelle, j\u2019ai entendu dire que c\u2019\xE9tait un des seuls endroits avec
+    des trains pour Paris encore en marche."
+  speaker: 1
+  choices: []
+  timeToWait: 2.5
+  directNextNode: {fileID: 11400000, guid: f16a74dbf03071848b6ebe4c6762b669, type: 2}
+  bubbleSize: 4
+  isEndOfDay: 0

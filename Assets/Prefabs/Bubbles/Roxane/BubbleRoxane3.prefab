@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 380.37488, y: 331.88098}
-  m_SizeDelta: {x: 759.778, y: 285.0135}
+  m_AnchoredPosition: {x: 380.37488, y: 216.21643}
+  m_SizeDelta: {x: 759.778, y: 218.2401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4400628610579729192
 CanvasRenderer:
@@ -95,8 +95,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 93}
-  m_SizeDelta: {x: 344.4655, y: 54.6904}
+  m_AnchoredPosition: {x: 149.6, y: 8.2285}
+  m_SizeDelta: {x: 344.4655, y: 151.9097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3049478243852344184
 CanvasRenderer:
@@ -126,7 +126,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Placeholder text
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -189,7 +191,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -5.892029}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -260,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a2c4f7bfebb0e941942b2977d74602c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d4b2836c8d1f2349b9a135f01d93de6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 13
+  m_EditorClassIdentifier: 
+  nodeId: 
+  message: "\xC7a risque d\u2019\xEAtre compliqu\xE9 oui. Et en plus, les routes
+    vont \xEAtre encombr\xE9es\u2026 Quel est le meilleur moyen d\u2019atteindre
+    Bordeaux selon toi ?"
+  speaker: 1
+  choices:
+  - choiceText: 'Bus: -pass de bus'
+    nextNode: {fileID: 11400000, guid: 72d27045bb7a536499a51075ccf03929, type: 2}
+    neededObject: 4
+  - choiceText: "Voiture: -1 sant\xE9"
+    nextNode: {fileID: 11400000, guid: d984b10365d57f144926a44dbfb78926, type: 2}
+    neededObject: 6
+  - choiceText: 'Taxi: -1 argent'
+    nextNode: {fileID: 11400000, guid: e73f7cc7d71e9b443932eb7142d97e16, type: 2}
+    neededObject: 6
+  timeToWait: 1.5
+  directNextNode: {fileID: 0}
+  bubbleSize: 3
+  isEndOfDay: 0

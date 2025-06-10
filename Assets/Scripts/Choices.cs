@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue/Node", order = 1)]
 public class DialogueNode : ScriptableObject
@@ -20,7 +21,6 @@ public class DialogueNode : ScriptableObject
     public BubbleSize bubbleSize;
 
     public bool isEndOfDay = false;
-
 }
 
 
@@ -29,4 +29,5 @@ public class DialogueChoice
 {
     public string choiceText;
     public DialogueNode nextNode;
+    public Object neededObject;
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 17
+  m_EditorClassIdentifier: 
+  nodeId: 17
+  message: "Internal/Choix du v\xE9hicule"
+  speaker: 1
+  choices: []
+  timeToWait: 2.5
+  directNextNode: {fileID: 11400000, guid: 7ae1751774423ed4b8b8cb98a4c292b7, type: 2}
+  bubbleSize: 3
+  isEndOfDay: 0

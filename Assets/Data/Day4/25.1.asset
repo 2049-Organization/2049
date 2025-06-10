@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
+  m_Name: 25.1
+  m_EditorClassIdentifier: 
+  nodeId: 25.1
+  message: "J\u2019ai bien fait de lui donner ma bo\xEEte de conserve, il m\u2019a
+    propos\xE9 de m\u2019amener \xE0 La Rochelle avec sa voiture rapidement.\r"
+  speaker: 1
+  choices: []
+  timeToWait: 2
+  directNextNode: {fileID: 11400000, guid: 7c8df18aad741ec41b37570d1ee1f1b1, type: 2}
+  bubbleSize: 3
+  isEndOfDay: 0
