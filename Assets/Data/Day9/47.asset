@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c168f4223ea9b6f4a820c1a505b9b192, type: 3}
-  m_Name: 46
+  m_Name: 47
   m_EditorClassIdentifier: 
-  nodeId: 46
-  message: "Hey ! Le trajet s\u2019est bien pass\xE9, je suis devant chez toi, viens
-    m\u2019ouvrir <sprite=3388>."
+  nodeId: 47
+  message: 
   speaker: 1
   choices: []
-  timeToWait: 2
-  directNextNode: {fileID: 11400000, guid: 0364aa104178ee84eb354a6f39ccb289, type: 2}
+  timeToWait: 4
+  directNextNode: {fileID: 0}
   bubbleSize: 2
-  isEndOfDay: 0
+  isEndOfDay: 1
   image: {fileID: 0}
   alert: 
   alertImage: {fileID: 0}

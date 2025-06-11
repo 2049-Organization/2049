@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -244,8 +245,14 @@ public class MessageSystem : MonoBehaviour
     private IEnumerator WaitForNextDay()
     {
         yield return new WaitForSeconds(3f);
-        if (currentNode.directNextNode != null) 
+        if (currentNode.directNextNode != null)
+        {
             NextMessage();
+        }
+        else
+        {
+            SceneManager.LoadScene("Bilan");
+        }
     }
 
     public void ShowMessage(string message, MessageSender sender, BubbleSize size, Sprite s, string alert, Sprite alertSprite)

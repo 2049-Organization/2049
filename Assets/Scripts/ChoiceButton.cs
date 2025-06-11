@@ -87,6 +87,11 @@ public class ChoiceButton : MonoBehaviour
                         newNode.bubbleSize = BubbleSize.XS;
                     }
 
+                    if (PlayerData.Instance.GetObj1() == Object.Money)
+                    {
+                        PlayerData.Instance.moneyAtStart = 5;
+                    }
+
                     MessageSystem.Instance.StartSendingMessages(newNode);
                 }
                 else if (PlayerData.Instance.GetObj2() == Object.Null)
@@ -105,6 +110,11 @@ public class ChoiceButton : MonoBehaviour
                     else
                     {
                         newNode.bubbleSize = BubbleSize.XS;
+                    }
+
+                    if (PlayerData.Instance.GetObj1() == Object.Money)
+                    {
+                        PlayerData.Instance.moneyAtStart = 5;
                     }
 
                     MessageSystem.Instance.StartSendingMessages(newNode);
@@ -126,7 +136,12 @@ public class ChoiceButton : MonoBehaviour
                     {
                         newNode.bubbleSize = BubbleSize.XS;
                     }
-                            
+
+                    if (PlayerData.Instance.GetObj1() == Object.Money)
+                    {
+                        PlayerData.Instance.moneyAtStart = 5;
+                    }
+
                     MessageSystem.Instance.StartSendingMessages(newNode);
                 }
             }
@@ -165,6 +180,7 @@ public class ChoiceButton : MonoBehaviour
                     break;
                 case "Entrer: Maladie":
                     PlayerData.Instance.illness = true;
+                    PlayerData.Instance.wasHelped += 1;
                     break;
                 case "Ne pas dormir: -2 santé":
                     PlayerData.Instance.SetHealth(PlayerData.Instance.GetHealth() - 2);
@@ -182,12 +198,14 @@ public class ChoiceButton : MonoBehaviour
                     {
                         PlayerData.Instance.SetObj3(Object.Null);
                     }
+                    PlayerData.Instance.helped += 1;
                     break;
                 case "Prendre un taxi: -2 argent":
                     PlayerData.Instance.SetMoney(PlayerData.Instance.GetMoney() - 2);
                     break;
                 case "Soudoyer le contrôleur: -2 argent":
                     PlayerData.Instance.SetMoney(PlayerData.Instance.GetMoney() - 2);
+                    PlayerData.Instance.wasHelped += 1;
                     break;
                 case "Monter dans le train: -médicaments":
                     if (PlayerData.Instance.GetObj1() == Object.Medicine)
@@ -205,9 +223,17 @@ public class ChoiceButton : MonoBehaviour
                     break;
                 case "Oui: -1 santé":
                     PlayerData.Instance.SetHealth(PlayerData.Instance.GetHealth() - 1);
+                    PlayerData.Instance.helped += 1;
                     break;
                 case "Non: +1 santé":
                     PlayerData.Instance.SetHealth(PlayerData.Instance.GetHealth() + 1);
+                    break;
+                case "Chercher une connaissance":
+                    PlayerData.Instance.helped += 1;
+                    break;
+                case "Faire le trajet avec les autres":
+                    PlayerData.Instance.helped += 1;
+                    PlayerData.Instance.wasHelped += 1;
                     break;
             }
         });

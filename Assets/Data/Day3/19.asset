@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeId: 19
   message: "Malheureusement je ne connais personne dans la ville\u2026 mais j\u2019ai
-    r\xE9ussi \xE0 trouver un camp de r\xE9fugi\xE9s climatique install\xE9 par la
-    Croix Rouge. \r"
+    r\xE9ussi \xE0 trouver un camp de r\xE9fugi\xE9s climatique. \r"
   speaker: 1
   choices: []
   timeToWait: 2.5

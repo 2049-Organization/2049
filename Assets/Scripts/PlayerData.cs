@@ -24,6 +24,10 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private int money = 5;
 
+    public int helped;
+    public int wasHelped;
+    public int moneyAtStart = 3;
+
     public bool tookTheBus = false;
     public bool tookTheCar = false;
     public bool tookTheTaxi = false;
@@ -46,6 +50,8 @@ public class PlayerData : MonoBehaviour
         {
             Instance = this;
         }
+
+        DontDestroyOnLoad(gameObject);
 
         object_map["Boîte de médicament"] = Object.Medicine;
         object_map["Tenue de pluie"] = Object.Raincoat;
